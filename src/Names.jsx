@@ -6,7 +6,7 @@ import FriendName from "./FriendName";
 const Names = () => {
     return (
         <Routes>
-            <Route path="/1" element={<YourName />}/>
+            <Route path="/:id/*" element={<YourName />}/>
             <Route path="/2" element={<FriendName />}/>
         </Routes>
     )
