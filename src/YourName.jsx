@@ -19,7 +19,7 @@ const YourName = () => {
         <>
             <h1>Your Name: {name}</h1>
             <Routes>
-                <Route path="/greet" element={<Greet name={name}/>} />
+                <Route path="greet" element={<Greet name={name}/>} />
             </Routes>
         </>
     )

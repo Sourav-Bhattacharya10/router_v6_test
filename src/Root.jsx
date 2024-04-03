@@ -1,11 +1,30 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect } from "react";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 
 const Root = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+
+  useEffect(() => {
+    let prevRoute = localStorage.getItem("prevRoute");
+    if(!prevRoute){
+      localStorage.setItem("prevRoute", location.pathname)
+    }
+    
+    window.onpopstate = () => {
+      let prevRoute = localStorage.getItem("prevRoute");
+      if(prevRoute){
+        navigate(prevRoute)
+      }
+    }
+  }, [])
+
   return (
     <>
       {/* <Routes>
-        <Route path="/contacts/1" element={<YourName />} />
+        <Route path="*" element={<h1>No Match</h1>} />
+        <Route path="/patients" element={<Names />} />
         <Route path="/contacts/2" element={<FriendName />} />
       </Routes> */}
       <div id="sidebar">
@@ -29,7 +48,7 @@ const Root = () => {
         <nav>
           <ul>
             <li>
-              <NavLink to={`/contacts/1`}>Your Name</NavLink>
+              <NavLink to={'/patients/1'}>Your Name</NavLink>
             </li>
             <li>
               <NavLink to={`/contacts/2`}>Your Friend</NavLink>
