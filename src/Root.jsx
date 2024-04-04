@@ -7,10 +7,7 @@ const Root = () => {
 
 
   useEffect(() => {
-    let prevRoute = localStorage.getItem("prevRoute");
-    if(!prevRoute){
-      localStorage.setItem("prevRoute", location.pathname)
-    }
+    localStorage.setItem("prevRoute", location.pathname)
     
     window.onpopstate = () => {
       let prevRoute = localStorage.getItem("prevRoute");
