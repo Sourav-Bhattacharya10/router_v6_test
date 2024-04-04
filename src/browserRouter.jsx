@@ -7,7 +7,7 @@ import YourName from "./YourName.jsx";
 import FriendName from "./FriendName.jsx";
 
 const router = createBrowserRouter(
-    [
+[
     {
         path: "/home/patients",
         element: <Root />,
